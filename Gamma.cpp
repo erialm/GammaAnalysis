@@ -115,8 +115,8 @@ std::vector<Point> CreateSquare(const Matrix& Eva, const size_t Row, const size_
 
 Matrix SetUpP(std::vector<Point> SimplexVertices, const double* const R) noexcept
 {
-        size_t Size=SimplexVertices.size();
-        Matrix P(Size,1);
+        size_t Size=SimplexVertices.size();//SimplexVertices.size();
+        Matrix P(3,1);
         P(0,0)=R[0]-SimplexVertices[Size-1].X;
         P(1,0)=R[1]-SimplexVertices[Size-1].Y;
         P(2,0)=R[2]-SimplexVertices[Size-1].Dose;
@@ -127,7 +127,7 @@ Matrix SetUpP(std::vector<Point> SimplexVertices, const double* const R) noexcep
 Matrix SetUpV(std::vector<Point> SimplexVertices) noexcept
 {
         size_t Size=SimplexVertices.size();
-        Matrix V(Size,Size-1);
+        Matrix V(3,Size-1);
         for (size_t VCol=0;VCol<(Size-1);++VCol)
         {
                 V(0,VCol)=SimplexVertices[VCol].X-SimplexVertices[Size-1].X;
@@ -206,7 +206,7 @@ double GetGammaFromLine(const std::vector<Point>& Line, const Matrix& W, const d
 
 double CheckLine(const std::vector<Point> Line, const double* const R) noexcept
 {
-   
+  
         Matrix P=SetUpP(Line,R);
         Matrix V=SetUpV(Line);
         Matrix VT=V.Transpose();

@@ -1,6 +1,6 @@
 #include "MatrixMult.h"
 #include <iostream>
-#include <chrono>
+//#include <chrono>
 int main()
 {
         using std::string;
@@ -13,11 +13,11 @@ int main()
         double d=2;
         double DoseLim=10;
         double SearchLim=4.5;
-        auto start = std::chrono::high_resolution_clock::now();
+        //auto start = std::chrono::high_resolution_clock::now();
         Matrix Gamma=Gamma2D(Ref,Eva,D,d,DoseLim,SearchLim);
-        auto finish = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> elapsed = finish - start;
-        std::cout << "Elapsed time: " << elapsed.count() << " s\n";
+        //auto finish = std::chrono::high_resolution_clock::now();
+        //std::chrono::duration<double> elapsed = finish - start;
+        //std::cout << "Elapsed time: " << elapsed.count() << " s\n";
         Gamma.PrintMatrix();
         return 0;
 }
